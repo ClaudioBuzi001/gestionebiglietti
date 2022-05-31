@@ -23,7 +23,7 @@ import it.prova.gestionebiglietti.model.Utente;
 public class CheckAuthFilter extends HttpFilter implements Filter {
        
 	private static final String HOME_PATH = "";
-	private static final String[] EXCLUDED_URLS = {"/login.jsp","/ExecuteLoginServlet","/ExecuteLogoutServlet","/css/","/js/"};
+	private static final String[] EXCLUDED_URLS = {"/PrepareSearchBigliettoServlet","/ExecuteSearchBigliettoServlet","/search.jsp","/index.jsp","/login.jsp","/ExecuteLoginServlet","/ExecuteLogoutServlet","/css/","/js/"};
 	private static final String[] PROTECTED_URLS = {};
 
 	public CheckAuthFilter() {
@@ -51,7 +51,7 @@ public class CheckAuthFilter extends HttpFilter implements Filter {
 			Utente utenteInSession = (Utente)httpRequest.getSession().getAttribute("userInfo");
 			//intanto verifico se utente in sessione
 			if (utenteInSession == null) {
-				httpResponse.sendRedirect("login.jsp");
+				httpResponse.sendRedirect("index.jsp");
 				return;
 			}
 			
